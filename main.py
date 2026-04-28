@@ -1,7 +1,8 @@
 import pygame
-from player import Player
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from logger import log_state
+from player import Player
+
 
 def main():
     pygame.init()
@@ -15,13 +16,13 @@ def main():
         for event in pygame.event.get():
             pass
         screen.fill("black")
+        player.update(dt)
         player.draw(screen)
         pygame.display.flip()
         clock.tick(60)
-        dt = clock.tick(60)/1000
+        dt = clock.tick(60) / 1000
 
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
-
 
 
 if __name__ == "__main__":
